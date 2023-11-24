@@ -1,0 +1,81 @@
+CÂU 5: 
+ static void Main(string[] args)
+        {
+            double t;
+            Console.OutputEncoding = Encoding.UTF8;
+            Console.Write("Nhập điểm trung bình: ");
+            t = double.Parse(Console.ReadLine());
+
+            string[] Xeploai = { "Kém", "Yếu", "Trung bình", "Khá", "Giỏi", "Xuất sắc" };
+            double[] DTB = { 0, 3.5, 5, 6.5, 8, 9 };
+
+            string loai = "Không xác định";
+            for (int i = Xeploai.Length - 1; i >= 0; i--)
+            {
+                if (t >= DTB[i])
+                {
+                    loai = Xeploai[i];
+                    break;
+                }
+            }
+
+            Console.WriteLine("Xếp loại: " + loai);
+            Console.ReadLine();
+        }
+    }
+}
+CÂU 6: 
+ static void Main(string[] args)
+        {
+            int t;
+            Console.OutputEncoding = Encoding.UTF8;
+            Console.Write("Nhập số tiền t: ");
+            t = Convert.ToInt32(Console.ReadLine());
+            int[] menh_gia = { 500000, 200000, 100000, 50000 };
+            int[] so_To = new int[menh_gia.Length];
+            for (int i = 0; i < menh_gia.Length; i++)
+            {
+                if (t >= menh_gia[i])
+                {
+                    so_To[i] = t / menh_gia[i];
+                            t = t % menh_gia[i];
+                }
+            }
+            for (int i = 0; i < menh_gia.Length; i++)
+            {
+                if (so_To[i] > 0)
+                {
+                    
+                    Console.WriteLine(so_To[i] + "Tờ" + ":" + menh_gia[i]); 
+                }
+            }
+
+            Console.ReadLine();
+        }
+    }
+}
+CÂU 7: 
+ static void Main(string[] args)
+        {
+            double p;
+            double thue_VAT = 0.1;
+            string[] muc_gia = { "0", "50", "100", "200", "300", "400" };
+            double[] gia = { 1484, 1533, 1786, 2242, 2503, 2503 };
+
+            Console.OutputEncoding = Encoding.UTF8;
+            Console.Write("Nhập chỉ số điện: ");
+            p = double.Parse(Console.ReadLine());
+
+            for (int i = 0; i < muc_gia.Length - 1; i++)
+            {
+                if (p > double.Parse(muc_gia[i]) && p <= double.Parse(muc_gia[i + 1]))
+                {
+                    double gia_ban = p * gia[i] * (1 + thue_VAT);
+                    Console.WriteLine("Giá điện là: " + gia_ban.ToString("C"));
+                    break;
+                }
+            }
+            Console.ReadLine();
+        }
+    }
+}
